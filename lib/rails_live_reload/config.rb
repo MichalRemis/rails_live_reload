@@ -25,6 +25,8 @@ module RailsLiveReload
       @url = "/rails/live/reload"
       @watcher = nil
       @files = {}
+      #citanie configu nefungovalo.. musim to tu dat natvrdo
+      @enabled = Rails.env.development? || Rails.env.development_sk? || Rails.env.development_cz? || Rails.env.development_pl? || Rails.env.development_de? || Rails.env.development_at?
 
       # These configs work for 95% apps, see README for more info
       @patterns = {
