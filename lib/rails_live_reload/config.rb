@@ -13,7 +13,7 @@ module RailsLiveReload
     end
 
     def enabled?
-      config.enabled
+      config.enabled.nil? ? ::Rails.env.development? : config.enabled
     end
   end
 
@@ -25,7 +25,6 @@ module RailsLiveReload
       @url = "/rails/live/reload"
       @watcher = nil
       @files = {}
-      @enabled = ::Rails.env.development?
 
       # These configs work for 95% apps, see README for more info
       @patterns = {
